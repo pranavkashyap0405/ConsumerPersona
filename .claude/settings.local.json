@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pandoc \"D:\\\\ConsumerPersonAnalysis\\\\Consumer_Persona_Framework.docx\" -o /tmp/output.md)",
+      "Read(//tmp/**)",
+      "Read(//c/Users/PRANAV KASHYAP/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/d5a336e8-8de4-45a7-baa6-f32b0a36dd94/d64e704f-9327-4597-994d-9514dad4a444/skills/docx/**)",
+      "Bash(python scripts/office/unpack.py \"D:/ConsumerPersonAnalysis/Consumer_Persona_Framework.docx\" /tmp/unpacked/)",
+      "Bash(python3 -c \":*)",
+      "Bash(python \"C:/Users/PRANAV KASHYAP/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/d5a336e8-8de4-45a7-baa6-f32b0a36dd94/d64e704f-9327-4597-994d-9514dad4a444/skills/docx/scripts/office/unpack.py\" Consumer_Persona_Framework.docx unpacked_framework/)",
+      "Bash(pandoc unpacked_framework/word/document.xml -t plain)",
+      "Bash(python -c ':*)",
+      "Bash(pip install:*)",
+      "Bash(python -c \"from app.main import app; print\\('Backend imports OK'\\)\")",
+      "Bash(npm install:*)",
+      "Bash(uvicorn app.main:app --port 8000)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -s \"http://localhost:8000/api/portfolio/summary\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Consumers:', d['total_consumers'], '| Overdue:', d['consumers_overdue'], '| Reg risk:', d['regulatory_risk_count']\\)\")",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(curl -s \"http://localhost:8000/api/consumers?limit=2\")",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(c['name'], '|', c['primary_persona'], '| Rev Risk:', c['revenue_risk_score']\\) for c in d['consumers']]\")",
+      "Bash(curl -s \"http://localhost:8000/api/kpis\")",
+      "Bash(python -c \"import sys,json; [print\\(f\\\\\"{k['kpi_name']}: {k['actual']}{k['unit']} vs {k['target']}{k['unit']} [{k['rag_status']}]\\\\\"\\) for k in json.load\\(sys.stdin\\)]\")"
+    ]
+  }
+}
