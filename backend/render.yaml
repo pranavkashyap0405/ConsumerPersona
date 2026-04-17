@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: discom-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false        # you set this manually in Render dashboard
+      - key: DATABASE_URL
+        value: sqlite:///./discom.db

@@ -12,6 +12,21 @@ import app.models  # ensure models are registered
 
 Base.metadata.create_all(bind=engine)
 
+# Auto-seed on startup if database is empty (needed for Render cold starts)
+def _auto_seed():
+    from app.database import SessionLocal
+    from app import models as m
+    from app.seed import seed_dts, seed_consumers
+    db = SessionLocal()
+    try:
+        if db.query(m.ConsumerMaster).count() == 0:
+            dts = seed_dts(db)
+            seed_consumers(db, dts, total=200)
+    finally:
+        db.close()
+
+_auto_seed()
+
 app = FastAPI(
     title="DISCOM Consumer Persona Intelligence API",
     version="1.0.0",
@@ -20,7 +35,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("FRONTEND_URL", "http://localhost:5173"), "http://localhost:3000"],
+    allow_origins=["*"],  # Restrict to your Netlify URL in production via FRONTEND_URL env var
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
