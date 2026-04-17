@@ -9,4 +9,4 @@ services:
       - key: ANTHROPIC_API_KEY
         sync: false        # you set this manually in Render dashboard
       - key: DATABASE_URL
-        value: sqlite:///./discom.db
+        sync: false        # set this to your Supabase connection string in Render dashboard
