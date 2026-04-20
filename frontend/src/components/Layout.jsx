@@ -1,7 +1,5 @@
-import { NavLink, useLocation } from 'react-router-dom'
-import {
-  LayoutDashboard, Users, Zap, ClipboardList, BarChart3, MessageSquare, Activity
-} from 'lucide-react'
+import { NavLink } from 'react-router-dom'
+import { LayoutDashboard, Users, Zap, ClipboardList, BarChart3 } from 'lucide-react'
 import clsx from 'clsx'
 
 const NAV = [
@@ -12,10 +10,9 @@ const NAV = [
   { to: '/kpis', icon: BarChart3, label: 'KPI Tracker' },
 ]
 
-export default function Layout({ children, onOpenChat }) {
+export default function Layout({ children }) {
   return (
     <div className="flex h-screen bg-gray-50 overflow-hidden">
-      {/* Sidebar */}
       <aside className="w-56 bg-gray-900 flex flex-col flex-shrink-0">
         <div className="px-4 py-5 border-b border-gray-700">
           <div className="flex items-center gap-2">
@@ -47,19 +44,8 @@ export default function Layout({ children, onOpenChat }) {
             </NavLink>
           ))}
         </nav>
-
-        <div className="px-3 pb-4">
-          <button
-            onClick={onOpenChat}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-400 hover:bg-gray-800 hover:text-white transition-colors"
-          >
-            <MessageSquare size={16} />
-            AI Assistant
-          </button>
-        </div>
       </aside>
 
-      {/* Main content */}
       <main className="flex-1 overflow-y-auto scrollbar-thin">
         {children}
       </main>
