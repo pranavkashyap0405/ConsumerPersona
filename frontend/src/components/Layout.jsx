@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, Users, Zap, ClipboardList, BarChart3 } from 'lucide-react'
+import { LayoutDashboard, Users, Zap, ClipboardList, BarChart3, FlaskConical } from 'lucide-react'
 import clsx from 'clsx'
 
 const NAV = [
@@ -8,6 +8,7 @@ const NAV = [
   { to: '/actions', icon: ClipboardList, label: 'Action Queue' },
   { to: '/dt', icon: Zap, label: 'DT / Network' },
   { to: '/kpis', icon: BarChart3, label: 'KPI Tracker' },
+  { to: '/scoring', icon: FlaskConical, label: 'Scoring Model' },
 ]
 
 export default function Layout({ children }) {

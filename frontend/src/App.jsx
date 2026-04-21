@@ -6,6 +6,7 @@ import Consumer360 from './pages/Consumer360'
 import ActionQueue from './pages/ActionQueue'
 import DTView from './pages/DTView'
 import KPITracker from './pages/KPITracker'
+import ScoringMethodology from './pages/ScoringMethodology'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/actions" element={<ActionQueue />} />
         <Route path="/dt" element={<DTView />} />
         <Route path="/kpis" element={<KPITracker />} />
+        <Route path="/scoring" element={<ScoringMethodology />} />
       </Routes>
     </Layout>
   )
